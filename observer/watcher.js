@@ -18,7 +18,7 @@ export class Watcher {
         const oldValue = this.value
         this.value = this.get()
         this.cb.call(this.vm, this.value, oldValue)
-    },
+    }
 
     parsePath (path) {
         const bailRE = /[^\w.$]/

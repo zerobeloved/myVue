@@ -1,7 +1,6 @@
-import type {Component} from "../types/component";
 import {updateComponentListeners} from "../../vue/src/core/instance/events";
 
-export function initEvent(vm: Component) {
+export function initEvent(vm) {
     vm._events = Object.create(null)
     vm._hasHookEvent = false
     const listeners = vm.$options._parentListeners
@@ -10,7 +9,7 @@ export function initEvent(vm: Component) {
     }
 }
 
-let target: any
+let target
 function add(event, fn) {
     target.$on(event, fn)
 }
@@ -28,9 +27,9 @@ function createOnceHandler(event, fn) {
 }
 
 export function updateComponetListeners(
-    vm: Component,
-    listeners: Object,
-    oldListeners?: Object | null
+    vm,
+    listeners,
+    oldListeners
 ) {
     target = vm
     updateListeners(
